@@ -1,0 +1,89 @@
+.title{
+display: block;
+color: white;
+border-right: 10px solid;
+font-family: Luminari (fantasy);
+font-size: 100px;
+position: relative;
+top: 25vh;
+left: 7vh;
+margin: 0px;
+overflow: hidden;
+white-space: nowrap;
+width: 0;
+animation: typing 2s steps(20, end) forwards, blinking 1s infinite;
+}
+
+@keyframes typing {
+  from { width: 0% }
+  to { width: 75% }
+}
+
+@keyframes blinking {
+  0% {border-color: transparent}
+  50% {border-color: white}
+  100% {border-color: transparent}
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.textbox{
+	font-family: cursive;
+	text-align: center;
+	color: white;
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 50px;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	width: 80%;
+	position: relative;
+	bottom: -1vh;
+}
+
+.container{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+input[type="range"]{
+	width: 90vw;
+	height: 6px;
+	-webkit-appearance:none;
+	background-color: white;
+	border-radius: 6px;
+	outline: none;
+	margin-top: 60px;
+}
+input[type="range"]::-webkit-slider-thumb{
+	-webkit-appearance:none;
+	height: 30px;
+	width: 30px;
+	background-color: white;
+	border-radius: 50%;
+	box-shadow: 10px 15px 10px rgba(0,0,0,0.2);
+}
+.material-icons{
+	font-size: 130px;
+	color: #3fcad8;
+}

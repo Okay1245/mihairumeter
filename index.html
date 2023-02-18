@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mood Slider</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  
+  <body>
+    <h2 class="title"> Mihairu Meter</h2>
+    <div class="container">
+      <i class="material-icons" id="emoji"> sentiment_satisfied </i>
+      <input type="range" min="0" max="4" value="2" id="slider" />
+      <input type="textbox" class="textbox" id="commentbox" placeholder="type here..."/> 
+    </div>
+    <script>
+      var slider = document.getElementById("slider");
+      var emoji = document.getElementById("emoji");
+      var emoticons = [
+        "mood_bad",
+        "sentiment_very_dissatisfied",
+        "sentiment_satisfied",
+        "sentiment_satisfied_alt",
+        "sentiment_very_satisfied",
+      ];
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const mood = localStorage.getItem("mood");
+
+        if (!mood) {
+          return;
+        }
+
+        emoji.innerHTML = emoticons[mood];
+        slider.value = mood;
+      });
+
+      slider.oninput = function () {
+        const mood = slider.value;
+        emoji.innerHTML = emoticons[mood];
+        localStorage.setItem("mood", mood);
+      };
+let commentbox = document.querySelector("#commentbox")
+
+commentbox.value = localStorage.getItem("notes")
+
+let cancel
+
+commentbox.addEventListener("keyup", event => {
+
+  if (cancel) clearTimeout(cancel)
+  cancel = setTimeout(() => {
+
+    localStorage.setItem("notes", event.target.value)
+  }, 1000)
+})
+    </script>
+  </body>
+</html>
